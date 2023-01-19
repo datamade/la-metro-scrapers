@@ -48,6 +48,7 @@ jobs:
           DJANGO_SETTINGS_MODULE: pupa.settings
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           DATABASE_URL: ${{ secrets.DB_CONNECTION_STRING }}
+          TOKEN: ${{secrets.LAMETRO_TOKEN }}
         run: pupa update lametro ${{ inputs.specific_scraper }} --rpm=0
         
       - name: run scraper with window
@@ -56,4 +57,5 @@ jobs:
           DJANGO_SETTINGS_MODULE: pupa.settings
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           DATABASE_URL: ${{ secrets.DB_CONNECTION_STRING }}
+          TOKEN: ${{secrets.LAMETRO_TOKEN }}          
         run: pupa update lametro ${{ inputs.specific_scraper }} window=${{ inputs.window }} --rpm=0
